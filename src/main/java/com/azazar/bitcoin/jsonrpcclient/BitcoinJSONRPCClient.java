@@ -175,6 +175,9 @@ public class BitcoinJSONRPCClient implements Bitcoin {
     }
 
     private static byte[] loadStream(InputStream in, boolean close) throws IOException {
+        if (null == in){
+            return "".getBytes();
+        }
         ByteArrayOutputStream o = new ByteArrayOutputStream();
         byte[] buffer = new byte[1024];
         for(;;) {
