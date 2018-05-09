@@ -63,11 +63,13 @@ class MapWrapper {
     }
 
     public static boolean mapBool(Map m, String key) {
-        return ((Boolean)m.get(key)).booleanValue();
+        Object v = m.get(key);
+        return v == null ? false : ((Boolean)v).booleanValue();
     }
 
     public static float mapFloat(Map m, String key) {
-        return ((Number)m.get(key)).floatValue();
+        Object v = m.get(key);
+        return v == null ? 0 : ((Number)v).floatValue();
     }
 
     public static BigDecimal mapDecimal(Map m, String key) {
@@ -79,11 +81,13 @@ class MapWrapper {
     }
 
     public static int mapInt(Map m, String key) {
-        return ((Number)m.get(key)).intValue();
+        Object v = m.get(key);
+        return v == null ? 0 : ((Number)v).intValue();
     }
 
     public static long mapLong(Map m, String key) {
-        return ((Number)m.get(key)).longValue();
+        Object v = m.get(key);
+        return v == null ? 0 : ((Number)v).longValue();
     }
 
     public static String mapStr(Map m, String key) {
